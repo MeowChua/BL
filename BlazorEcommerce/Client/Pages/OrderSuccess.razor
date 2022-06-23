@@ -1,0 +1,16 @@
+﻿@page "/order-success"
+@inject ICartService CartService
+
+<PageTitle>Thank you!</PageTitle>
+
+<h3>Thank you!</h3>
+
+<span>Cảm ơn bạn đã mua sản phẩm của chúng tôi. Đơn hàng sẽ được vận chuyển đến bạn một cách nhanh nhất <a href="orders">here</a>.</span>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await CartService.GetCartItemsCount();
+    }
+
+}

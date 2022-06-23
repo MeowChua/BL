@@ -1,0 +1,18 @@
+﻿@inject NavigationManager NavigationManager
+
+<div @onclick="GoToHome" style="width:100%">
+    <h3 style="float: left; font-family: 'Quicksand', sans-serif;">
+        COSANBT
+        <h6 style="font-family: 'Quicksand', sans-serif;">
+        Cosmectic
+    </h6>
+    </h3>
+    
+</div>
+
+@code {
+    private void GoToHome()
+    {
+        NavigationManager.NavigateTo("");
+    }
+}

@@ -1,0 +1,266 @@
+﻿@inject IProductService ProductService
+@implements IDisposable
+
+<div class="container-xl">
+        <div class="row">
+      <div class="col-8">
+          <img class="d-block w-100" src="Images/anh2.jpg" style="width: 500px">
+      </div>
+  <div class="col-4">
+      <img class="d-block w-100" src="Images/anh3.jpg" style="width: 500px">
+      <img class="d-block w-100" src="Images/anh4.jpg" style="width: 500px">
+  </div>
+</div>
+        
+        </div>
+
+<center><h2 style="margin-top: 5rem; margin-bottom: 5rem">Sản phẩm bán chạy</h2></center>
+@if (ProductService.Products == null || ProductService.Products.Count == 0)
+{
+    <span>@ProductService.Message</span>
+}
+else
+{
+
+    <div class="container">
+            <div class="row">
+                    @foreach (var product in ProductService.Products)
+                        {
+                            @if (product.Featured)
+                            {
+                <div class="col" style="margin-top: 2rem">
+                    <div>
+                        <a href="product/@product.Id">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img class="img-products" src="@product.ImageUrl">
+                            }
+                            else if (product.Images.Count > 0)
+                            {
+                                <img class="img-products" src="@product.Images[0].Data" />
+                            }
+                        </a>
+                    </div>
+                    <h6><a href="product/@product.Id">@product.Title</a></h6>
+                    @if (product.Variants != null && product.Variants.Count > 0)
+                    {
+                        <h5 class="rating">
+
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </h5>
+                        <h5 class="price">
+                            @product.Variants[0].Price đ
+                        </h5>
+
+                    }
+                </div>
+                            }
+                        }
+                </div>   
+    </div>
+
+    <center><h2 style="margin-top: 5rem; margin-bottom: 5rem">Mỹ phẩm High-end</h2></center>
+    <div class="container" style="margin-bottom: 5rem;">
+        <img src="Images/1639446173415x130_laneige.jpg" style="float:left;margin-right: 3rem;">
+        <img src="Images/1644808614415-x-130---7.jpg"/>
+    </div>
+    <div class="container">
+            <div class="row">
+                    @foreach (var product in ProductService.Products)
+                        {
+                            
+                            @if (product.CategoryId == 1)
+                            {
+                               
+                <div class="col">
+                    <div>
+                        <a href="product/@product.Id">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img class="img-products" src="@product.ImageUrl">
+                            }
+                            else if (product.Images.Count > 0)
+                            {
+                                <img class="img-products" src="@product.Images[0].Data" />
+                            }
+                        </a>
+                    </div>
+                    <h6><a href="product/@product.Id">@product.Title</a></h6>
+                    @if (product.Variants != null && product.Variants.Count > 0)
+                    {
+                        <h5 class="rating">
+
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </h5>
+                        <h5 class="price">
+                            @product.Variants[0].Price đ
+                        </h5>
+                    }
+                </div>
+                            }
+                        }
+                </div>   
+    </div>
+
+    <center><h2 style="margin-top: 5rem; margin-bottom: 5rem">Chăm sóc da mặt</h2></center>
+    <div class="container" style="margin-bottom: 5rem;">
+        <img src="Images/1652436242anessa_415x130.jpg" style="float:left;margin-right: 3rem;">
+        <img src="Images/1644808708415-x-130---9.jpg"/>
+    </div>
+    <div class="container">
+            <div class="row">
+                    @foreach (var product in ProductService.Products)
+                        {
+                            
+                            @if (product.CategoryId == 2)
+                            {
+                               
+                <div class="col">
+                    <div>
+                        <a href="product/@product.Id">
+                            @if (!string.IsNullOrEmpty(product.ImageUrl))
+                            {
+                                <img class="img-products" src="@product.ImageUrl">
+                            }
+                            else if (product.Images.Count > 0)
+                            {
+                                <img class="img-products" src="@product.Images[0].Data" />
+                            }
+                        </a>
+                    </div>
+                    <h6><a href="product/@product.Id">@product.Title</a></h6>
+                    @if (product.Variants != null && product.Variants.Count > 0)
+                    {
+                        <h5 class="rating">
+
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+
+                        </h5>
+                        <h5 class="price">
+                            @product.Variants[0].Price đ
+                        </h5>
+                    }
+                </div>
+                            }
+                        }
+                </div>   
+    </div>
+
+     <div class="container" style="margin-bottom: 5rem;">
+        <img src="Images/1320-x-250---941649759305_img_1320x250_c0e985_fit_center.jpg" style="width: inherit; margin-top: 3rem; margin-bottom: 5rem"/>
+    </div>
+      <!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted" style="margin-top: 3rem">
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5">
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>COSANBT Cosmetic
+          </h6>
+          <p>
+            COSANBT Cosmetic là cửa hàng chuyên cung cấp các loại mỹ phẩm dành cho người dùng.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Danh mục sản phẩm
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Mỹ Phẩm High-end</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Chăm sóc da mặt</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Trang điểm</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Chăm sóc cơ thể</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+             
+          </h6>
+          <p>
+            <a href="#!" class="text-reset"></a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset"></a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset"></a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset"></a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Liên hệ
+          </h6>
+          <p><i class="fas fa-home me-3"></i> 273 An Dương Vương,P3,Q5,TPHCM</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            cosanbtcb@example.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+          <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+  <!-- Section: Links  -->
+</footer>
+<!-- Footer -->
+}
+
+
+
+@code {
+    protected override void OnInitialized()
+    {
+        ProductService.ProductsChanged += StateHasChanged;
+    }
+
+    public void Dispose()
+    {
+        ProductService.ProductsChanged -= StateHasChanged;
+    }
+
+
+  
+}
